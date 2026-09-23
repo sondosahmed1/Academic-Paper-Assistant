@@ -2,8 +2,9 @@ import os
 import logging
 import sys
 
-# Add the project root to sys.path so we can import from app.db
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# Correct absolute path to the project root
+PROJECT_ROOT = "C:/ITI_GP/Academic-Paper-Assistant/rag-assistant-project"
+sys.path.append(PROJECT_ROOT)
 
 try:
     from app.db.vector_store import VectorStore
@@ -15,8 +16,7 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger("indexer")
 
 def index_sample_data():
-    # Initialize the store
-    logger.info("Initializing VectorStore...")
+    logger.info("Initializing VectorStore with absolute path...")
     store = VectorStore()
 
     samples = [
@@ -41,14 +41,13 @@ def index_sample_data():
     logger.info(f"Indexing {len(samples)} sample chunks...")
 
     try:
-        # IMPORTANT: Wipe the collection first to avoid duplicate/conflicting embeddings
+        # Clean start
         try:
             store.client.delete_collection("research_papers")
-            logger.info("Deleted old collection to ensure clean state.")
+            logger.info("Deleted old collection for clean state.")
         except:
             pass
 
-        # Re-create the collection
         store.collection = store.client.get_or_create_collection(
             name="research_papers",
             metadata={"hnsw:space": "cosine"}
@@ -63,11 +62,10 @@ def index_sample_data():
             metadatas=metadatas,
             ids=ids
         )
-        logger.info("Successfully indexed sample papers!")
-        print("VERIFICATION: Data has been written to the database.")
+        logger.info("Successfully indexed sample papers into the CORRECT project directory!")
+        print("VERIFICATION: Data has been written to the CORRECT database.")
     except Exception as e:
         logger.error(f"Indexing failed: {e}")
 
 if __name__ == "__main__":
     index_sample_data()
-EOF
