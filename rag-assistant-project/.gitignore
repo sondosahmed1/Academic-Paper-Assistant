@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.py[cod]
+.env
+*.log
+data/corpus/
+backend/data/vector_store/*
+!backend/data/vector_store/.gitkeep
+notebooks/.ipynb_checkpoints/

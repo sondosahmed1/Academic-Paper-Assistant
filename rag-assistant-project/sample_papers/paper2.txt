@@ -1,0 +1,1 @@
+Paper 2: Efficient RAG Systems for Medical Queries. This study introduces a hybrid retrieval method combining BM25 and Dense Vector Search. The system reduced hallucinations by 30% compared to standard RAG. The data was tested on a corpus of 5,000 PubMed abstracts.

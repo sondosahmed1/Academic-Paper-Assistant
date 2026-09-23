@@ -1,0 +1,1 @@
+Paper 1: Advanced Layout Detection in Academic PDFs. The proposed model achieves an accuracy of 94.5% on the PubLayNet dataset. The primary limitation is the inability to handle multi-column tables with merged cells. Future work includes integrating a transformer-based region proposer.
