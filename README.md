@@ -63,6 +63,3 @@ curl -X POST http://localhost:8000/query -H "Content-Type: application/json" -d 
 
 Run the ten-question evaluation table in the notebook after indexing the selected corpus. Record each question, retrieved source, answer, and correctness. Typical failure cases include ambiguous terminology and insufficient context; mitigation is a coherent corpus, overlap between chunks, top-k retrieval, and explicit abstention when sources do not support an answer.
 
-## Screenshots
-
-_Add screenshots of the Streamlit conversation, `/docs`, and a notebook layout-detection result here._
